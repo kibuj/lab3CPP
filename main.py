@@ -1,20 +1,35 @@
 
 
-def factorial(n):
+def factorial_rec(n):
     if n == 0:
         return 1
     else:
-        return n * factorial(n-1)
+        return n * factorial_rec(n-1)
 
-def fibonacci(m):
-    if m == 0:
+def fibonacci_rec(n):
+    if n == 0:
         return 0
-    elif m == 1:
+    elif n == 1:
         return 1
     else:
-        return fibonacci(m - 1) + fibonacci(m-2)
+        return fibonacci_rec(n - 1) + fibonacci_rec(n-2)
 
-n = factorial(3)
-m = fibonacci(3)
+def factorial_loop(n):
+    fact = 1
+    for i in range(1,n + 1):
+        fact = i *fact
+    return fact
 
-print(n, m)
+def fibonacci_loop(n):
+    a = 0
+    b = 1
+    for i in range(2,n + 1):
+        a, b = b, a + b
+    return b
+
+
+ex = 5
+print(f"Факторіал рекурсивно = {factorial_rec(ex)},\n"
+      f"Фібоначчі рекурсивно = {fibonacci_rec(ex)},\n"
+      f"Факторіал циклом = {factorial_loop(ex)},\n"
+      f"Фібоначчі циклом = {fibonacci_loop(ex)}")
